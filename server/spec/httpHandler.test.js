@@ -10,7 +10,7 @@ const httpHandler = require('../js/httpHandler');
 describe('server responses', () => {
 
   it('should respond to a OPTIONS request', (done) => {
-    let {req, res} = server.mock('/', 'OPTIONS');
+      
 
     httpHandler.router(req, res);
     expect(res._responseCode).to.equal(200);
@@ -22,6 +22,12 @@ describe('server responses', () => {
 
   it('should respond to a GET request for a swim command', (done) => {
     // write your test here
+    let {req, res} = server.mock('/', 'GET');
+    const validMessages = ['left', 'right', 'up', 'down'];
+    expect(res._responseCode).to.equal(200);
+    expect(res._ended).to.equal(true);
+    expect(res._data.toString()).to.contain.members([validateMessage])
+
     done();
   });
 
