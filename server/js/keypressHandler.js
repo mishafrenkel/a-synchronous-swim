@@ -49,9 +49,10 @@ module.exports.initialize = () => {
       // on enter, process the message
       logKeypress('\n');
       if (message.length > 0) {
-        if (isValidMessage(message)) {messageQueue.enqueue(message);
-          console.log(`Message received: ${message}`);
-        }
+        // if (isValidMessage(message)) {messageQueue.enqueue(message);
+        //   console.log(`Message received: ${message}`);
+        // }
+        messages.enqueue(message);
       }
       // clear the buffer where we are collecting keystrokes
       message = '';

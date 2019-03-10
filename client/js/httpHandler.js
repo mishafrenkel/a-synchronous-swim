@@ -14,4 +14,16 @@ setInterval(function() {
   }); 
 }, 1000);
 
+
+$.ajax({ 
+  url: "http://127.0.0.1:3000/water-lg.jpg", 
+  // timeout:5000,
+  contentType: 'image/jpg',
+  success: function(data) {
+    $('.pool').append(`<img src="${data}"/>`);
+  },
+  error: function() {
+    console.error('Sorry, image not found.');
+  }
+});
 })();
